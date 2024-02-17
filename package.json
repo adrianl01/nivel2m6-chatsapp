@@ -1,0 +1,24 @@
+{
+  "name": "rooms2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@vaadin/router": "^1.7.5",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase": "^10.6.0",
+    "lodash": "^4.17.21",
+    "uuid": "^9.0.1"
+  },
+  "source": "src/index.html",
+  "scripts": {
+    "dev:parcel": "parcel",
+    "dev": "nodemon --watch ./endpoints.ts --exec \"ts-node\" endpoints.ts",
+    "build": "parcel build"
+  }
+}
