@@ -20,6 +20,6 @@
   "scripts": {
     "build": "parcel build",
     "dev:parcel": "parcel",
-    "dev": "nodemon --watch ./endpoints.ts --exec \"ts-node\" endpoints.ts",
+    "dev": "nodemon --watch ./endpoints.ts --exec \"ts-node\" endpoints.ts"
   }
 }
