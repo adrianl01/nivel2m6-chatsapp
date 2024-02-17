@@ -17,8 +17,8 @@
   },
   "source": "src/index.html",
   "scripts": {
+    "build": "yarn add nodemon",
     "dev:parcel": "parcel",
     "dev": "nodemon --watch ./endpoints.ts --exec \"ts-node\" endpoints.ts",
-    "build": "parcel build"
   }
 }
