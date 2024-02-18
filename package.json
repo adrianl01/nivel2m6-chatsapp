@@ -22,6 +22,6 @@
   "scripts": {
     "build": "tsc endpoints.ts",
     "dev:parcel": "parcel",
-    "dev": "nodemon --watch ./endpoints.ts --exec \"ts-node\" endpoints.js"
+    "dev": "nodemon --watch ./endpoints.ts --exec \"ts-node\" endpoints.ts"
   }
 }
