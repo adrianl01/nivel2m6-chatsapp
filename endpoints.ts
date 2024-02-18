@@ -3,9 +3,8 @@ import { rtdb, fsdb } from "./src/db";
 import { get, ref, set } from "firebase/database"
 import { doc, collection, addDoc, getDoc, getDocs, where, query, setDoc, Timestamp, QuerySnapshot, QueryDocumentSnapshot } from "firebase/firestore"
 import cors from "cors"
-import { v4 as uuid4 } from "uuid"
-
-const port = 3000;
+require("dotenv").config()
+const port = process.env.PORT;
 const app = express();
 app.use(express.json());
 app.use(cors());
