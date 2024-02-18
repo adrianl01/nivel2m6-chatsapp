@@ -15,6 +15,7 @@
     "firebase": "^10.6.0",
     "lodash": "^4.17.21",
     "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
     "uuid": "^9.0.1"
   },
   "source": "src/index.html",
