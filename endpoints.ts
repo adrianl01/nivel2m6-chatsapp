@@ -119,5 +119,5 @@ app.get("*", () => { __dirname + "/dist/index.html" })
 
 
 app.listen(port, () => {
-    console.log(`Example app listening at ${port}`)
+    console.log(`Example app listening at http://prochats.onrender.com:${port}`)
 })
