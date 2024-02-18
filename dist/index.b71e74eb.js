@@ -596,7 +596,7 @@ var _database = require("firebase/database");
 var _db = require("./db");
 var _map = require("lodash/map");
 var _router = require("@vaadin/router");
-const API_BASE_URL = "http://prochats.onrender.com:4000";
+const API_BASE_URL = "https://prochats.onrender.com:4000";
 const state = {
     data: {
         email: "",
