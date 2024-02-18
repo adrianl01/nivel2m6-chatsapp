@@ -142,10 +142,10 @@
       this[globalName] = mainExports;
     }
   }
-})({"gmPuC":[function(require,module,exports) {
+})({"a0pd7":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = null;
+var HMR_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 module.bundle.HMR_BUNDLE_ID = "5c1b77e3b71e74eb";
@@ -596,7 +596,7 @@ var _database = require("firebase/database");
 var _db = require("./db");
 var _map = require("lodash/map");
 var _router = require("@vaadin/router");
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "http://prochats.onrender.com:4000";
 const state = {
     data: {
         email: "",
@@ -42924,7 +42924,6 @@ customElements.define("chatr-el", class ChatRoom extends HTMLElement {
             if ((0, _state.state).data.fullName == m.from) div.classList.add("message2");
             if ((0, _state.state).data.fullName !== m.from) div.classList.add("message");
             const feedEl = this.querySelector(".feed").childNodes;
-            let feedChildren = [];
             if (feedEl.length > 0) feedEl.forEach((c)=>{
                 const message = c.childNodes[2]?.textContent;
                 console.log(message, "//", m.message);
@@ -43069,6 +43068,6 @@ customElements.define("chatr-el", class ChatRoom extends HTMLElement {
     }
 });
 
-},{"../src/state":"1Yeju"}]},["gmPuC","h7u1C"], "h7u1C", "parcelRequire4cb4")
+},{"../src/state":"1Yeju"}]},["a0pd7","h7u1C"], "h7u1C", "parcelRequire4cb4")
 
 //# sourceMappingURL=index.b71e74eb.js.map
