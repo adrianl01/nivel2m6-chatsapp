@@ -20,8 +20,8 @@
   },
   "source": "src/index.html",
   "scripts": {
-    "build": "add ts-node",
+    "build": "tsc endpoints.ts",
     "dev:parcel": "parcel",
-    "dev": "nodemon --watch ./endpoints.ts --exec \"ts-node\" endpoints.ts"
+    "dev": "nodemon --watch ./endpoints.ts --exec \"ts-node\" endpoints.js"
   }
 }
