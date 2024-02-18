@@ -17,7 +17,9 @@ const createDocRoomsRef = doc(fsdb, "rooms/" + roomShortId.toString())
 
 // -----------------------------------------------
 
-
+app.get("/api/wlecome", (req, res) => {
+    res.status(200).send({ message: "Welcome to this API" })
+})
 
 app.post("/signup", function (req, res) {
     const email = req.body.email; const name = req.body.name;
