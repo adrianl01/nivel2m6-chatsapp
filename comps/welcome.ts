@@ -2,6 +2,9 @@ import { state } from "../src/state";
 
 customElements.define("welc-el", class Welcome extends HTMLElement {
     connectedCallback() {
+        fetch(process.env.API_BASE_URL + "/api/welcome", {}).then((res) => {
+            res.json()
+        }).then((data) => { console.log(data) })
         this.render();
         this.listeners();
     }

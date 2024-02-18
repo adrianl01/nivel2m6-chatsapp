@@ -17,7 +17,7 @@ const createDocRoomsRef = doc(fsdb, "rooms/" + roomShortId.toString())
 
 // -----------------------------------------------
 
-app.get("/api/wlecome", (req, res) => {
+app.get("/api/welcome", (req, res) => {
     res.status(200).send({ message: "Welcome to this API" })
 })
 
@@ -121,5 +121,5 @@ app.get("*", () => { __dirname + "/dist/index.html" })
 
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://prochats.onrender.com:${port}`)
+    console.log(`Example app listening at http://localhost:${port}`)
 })

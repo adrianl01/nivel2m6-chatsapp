@@ -20,7 +20,6 @@ customElements.define("chatr-el",
                 console.log("SUBSCRIBE")
                 const currentState = state.getState();
                 this.messages = currentState.messages;
-                console.log("antes del addMessage:", this.messages)
                 this.addMessage()
             })
         }
@@ -52,7 +51,6 @@ customElements.define("chatr-el",
                     if (feedEl.length > 0) {
                         feedEl.forEach((c) => {
                             const message = c.childNodes[2]?.textContent
-                            console.log(message, "//", m.message)
                             if (message !== m.message) { }
                         })
                     }
@@ -60,8 +58,6 @@ customElements.define("chatr-el",
                 })
             } else {
                 const m = this.messages.slice(-1);
-                console.log()
-
                 const div = document.createElement("div")
                 div.innerHTML =
                     `<div class="message-from">From:${m[0].from}</div>
@@ -70,7 +66,6 @@ customElements.define("chatr-el",
                 if (state.data.fullName == m[0].from) { div.classList.add("message2"); }
                 if (state.data.fullName !== m[0].from) { div.classList.add("message"); }
                 const feedEl = this.querySelector(".feed").childNodes
-                let feedChildren = []
                 if (feedEl.length > 0) {
                     feedEl.forEach((c) => {
                         const message = c.childNodes[2]?.textContent
@@ -133,7 +128,8 @@ customElements.define("chatr-el",
                     font-family: 'Roboto', sans-serif;
                     text-align: center;
                     font-size: 80;
-                    background-color: white;
+                    background-color: aquamarine;
+                    margin: 0;
                 }
                 .feed{
                     display: flex;
@@ -182,12 +178,20 @@ customElements.define("chatr-el",
                 display:flex;
                 flex-direction:column;
                 text-align:start;
+                gap:4px;
             }
             .message2 {
                 border: solid black 3px;
                 display:flex;
                 flex-direction:column;
                 text-align:end;
+                gap:4px;
+            }
+            .message-from {
+                color: aquamarine;
+            } 
+            .message-message {
+                color: white;
             }
             `;
             div.classList.add("root")

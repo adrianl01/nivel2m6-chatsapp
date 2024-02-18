@@ -1,7 +1,7 @@
 import { onValue, ref } from "firebase/database"
 import { rtdb } from "./db"
 import * as map from "lodash/map"
-const API_BASE_URL = "https://prochats.onrender.com:4000"
+require("dotenv").config();
 import { Router } from "@vaadin/router";
 const state = {
     data: {
@@ -42,7 +42,7 @@ const state = {
     signUp() {
         console.log("esto es el signUp")
         const cs = this.getState();
-        fetch(API_BASE_URL + "/signup", {
+        fetch(process.env.API_BASE_URL + "/signup", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -65,7 +65,7 @@ const state = {
         console.log("singIn")
         const cs = this.getState()
         if (cs.email) {
-            fetch(API_BASE_URL + "/signin", {
+            fetch(process.env.API_BASE_URL + "/signin", {
                 method: "post",
                 headers: {
                     "content-type": "application/json"
@@ -91,7 +91,7 @@ const state = {
         console.log("roomId");
         const cs = this.getState()
         if (cs.email) {
-            fetch(API_BASE_URL + "/roomId", {
+            fetch(process.env.API_BASE_URL + "/roomId", {
                 method: "post",
                 headers: {
                     "content-type": "application/json"
@@ -112,7 +112,7 @@ const state = {
         console.log("askNewRoom");
         const cs = this.getState();
         if (cs.userId) {
-            fetch(API_BASE_URL + "/rooms", {
+            fetch(process.env.API_BASE_URL + "/rooms", {
                 method: "post",
                 headers: {
                     "content-type": "application/json"
@@ -134,7 +134,7 @@ const state = {
         const cs = this.getState();
         const roomIdState = cs.roomId;
         const userIdState = cs.userId;
-        fetch(API_BASE_URL + "/rooms/" + roomIdState + "?userId=" + userIdState)
+        fetch(process.env.API_BASE_URL + "/rooms/" + roomIdState + "?userId=" + userIdState)
             .then((res) => {
                 return res.json();
             }).then(data => {
@@ -150,9 +150,7 @@ const state = {
         const chatroomsRef = ref(db, "/rooms/" + cs.rtdbRoomId);
         onValue(chatroomsRef, (snapshot => {
             const val = snapshot.val();
-            console.log(val)
             const messagesList = map(val.messages);
-            console.log(messagesList)
             cs.messages = messagesList
             this.setState(cs);
             if (location.pathname !== "/chat") { Router.go("/chat") };
@@ -165,7 +163,7 @@ const state = {
         const messagePack = { from: nombreDelState, message: message }
         const messages = state.data.messages
         messages.push(messagePack)
-        fetch(API_BASE_URL + "/messages", {
+        fetch(process.env.API_BASE_URL + "/messages", {
             method: "post",
             headers: {
                 "content-type": "application/json",
