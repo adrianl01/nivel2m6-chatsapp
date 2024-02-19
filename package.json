@@ -10,6 +10,7 @@
     "process": "^0.11.10"
   },
   "dependencies": {
+    "@types/node": "^20.11.19",
     "@vaadin/router": "^1.7.5",
     "cors": "^2.8.5",
     "express": "^4.18.2",
