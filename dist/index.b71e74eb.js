@@ -142,10 +142,10 @@
       this[globalName] = mainExports;
     }
   }
-})({"a0pd7":[function(require,module,exports) {
+})({"gmPuC":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 1234;
+var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 module.bundle.HMR_BUNDLE_ID = "5c1b77e3b71e74eb";
@@ -631,7 +631,7 @@ const state = {
     signUp () {
         console.log("esto es el signUp");
         const cs = this.getState();
-        fetch("https://prochats.onrender.com:1234/signup", {
+        fetch("undefined/signup", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -655,7 +655,7 @@ const state = {
     singIn () {
         console.log("singIn");
         const cs = this.getState();
-        if (cs.email) fetch("https://prochats.onrender.com:1234/signin", {
+        if (cs.email) fetch("undefined/signin", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -680,7 +680,7 @@ const state = {
     roomId () {
         console.log("roomId");
         const cs = this.getState();
-        if (cs.email) fetch("https://prochats.onrender.com:1234/roomId", {
+        if (cs.email) fetch("undefined/roomId", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -700,7 +700,7 @@ const state = {
     askNewRoom () {
         console.log("askNewRoom");
         const cs = this.getState();
-        if (cs.userId) fetch("https://prochats.onrender.com:1234/rooms", {
+        if (cs.userId) fetch("undefined/rooms", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -722,7 +722,7 @@ const state = {
         const cs = this.getState();
         const roomIdState = cs.roomId;
         const userIdState = cs.userId;
-        fetch("https://prochats.onrender.com:1234/rooms/" + roomIdState + "?userId=" + userIdState).then((res)=>{
+        fetch("undefined/rooms/" + roomIdState + "?userId=" + userIdState).then((res)=>{
             return res.json();
         }).then((data)=>{
             cs.rtdbRoomId = data.rtdbRoomId;
@@ -753,7 +753,7 @@ const state = {
         };
         const messages = state.data.messages;
         messages.push(messagePack);
-        fetch("https://prochats.onrender.com:1234/messages", {
+        fetch("undefined/messages", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -15587,10 +15587,10 @@ var _app = require("firebase/app");
 var _database = require("firebase/database");
 var _firestore = require("firebase/firestore");
 const firebaseConfig = {
-    apikey: "Gb114NwQJcuPTT4GsvCJCbRtJwsrmmMxQMJNgB65",
-    databaseURL: "https://imessages-d5664-default-rtdb.firebaseio.com",
-    authDomain: "imessages-d5664.firebaseapp.com",
-    projectId: "imessages-d5664"
+    apikey: undefined,
+    databaseURL: undefined,
+    authDomain: undefined,
+    projectId: undefined
 };
 const app = (0, _app.initializeApp)(firebaseConfig);
 const rtdb = (0, _database.getDatabase)(app);
@@ -43243,10 +43243,11 @@ router.setRoutes([
 var _state = require("../src/state");
 customElements.define("welc-el", class Welcome extends HTMLElement {
     connectedCallback() {
+        console.log("port.env", undefined);
         console.log("nodeEnv.env:", "development");
         console.log("appSecret.env:", undefined);
-        console.log("apibaseurl.env:", "https://prochats.onrender.com:1234");
-        fetch("https://prochats.onrender.com:1234/api/welcome", {}).then((res)=>{
+        console.log("apibaseurl.env:", undefined);
+        fetch("undefined/api/welcome", {}).then((res)=>{
             res.json();
         }).then((data)=>{
             console.log(data);
@@ -43598,6 +43599,6 @@ customElements.define("chatr-el", class ChatRoom extends HTMLElement {
     }
 });
 
-},{"../src/state":"1Yeju"}]},["a0pd7","h7u1C"], "h7u1C", "parcelRequire4cb4")
+},{"../src/state":"1Yeju"}]},["gmPuC","h7u1C"], "h7u1C", "parcelRequire4cb4")
 
 //# sourceMappingURL=index.b71e74eb.js.map
