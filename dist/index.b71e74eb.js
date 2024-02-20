@@ -43243,6 +43243,7 @@ router.setRoutes([
 var _state = require("../src/state");
 customElements.define("welc-el", class Welcome extends HTMLElement {
     connectedCallback() {
+        console.log("apibaseurl.env:", "https://prochats.onrender.com:4000");
         fetch("https://prochats.onrender.com:4000/api/welcome", {}).then((res)=>{
             res.json();
         }).then((data)=>{
