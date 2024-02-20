@@ -15586,6 +15586,10 @@ parcelHelpers.export(exports, "fsdb", ()=>fsdb);
 var _app = require("firebase/app");
 var _database = require("firebase/database");
 var _firestore = require("firebase/firestore");
+console.log(undefined);
+console.log(undefined);
+console.log(undefined);
+console.log(undefined);
 const firebaseConfig = {
     apikey: undefined,
     databaseURL: undefined,
