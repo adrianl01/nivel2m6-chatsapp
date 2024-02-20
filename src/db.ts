@@ -2,10 +2,10 @@ import { initializeApp } from "firebase/app"
 import { getDatabase } from "firebase/database"
 import { getFirestore } from "firebase/firestore"
 const firebaseConfig = ({
-    apikey: "Gb114NwQJcuPTT4GsvCJCbRtJwsrmmMxQMJNgB65",
-    databaseURL: "https://imessages-d5664-default-rtdb.firebaseio.com",
-    authDomain: "imessages-d5664.firebaseapp.com",
-    projectId: "imessages-d5664",
+    apikey: process.env.API_KEY,
+    databaseURL: process.env.DB_URL,
+    authDomain: process.env.AUTH_DOMAIN,
+    projectId: process.env.PROJECT_ID,
 });
 
 const app = initializeApp(firebaseConfig);

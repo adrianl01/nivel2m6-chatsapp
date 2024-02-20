@@ -121,5 +121,5 @@ app.get("*", () => { __dirname + "/dist/index.html" })
 
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Example app listening at ${port}`)
 })
