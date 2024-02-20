@@ -631,7 +631,7 @@ const state = {
     signUp () {
         console.log("esto es el signUp");
         const cs = this.getState();
-        fetch("https://prochats.onrender.com:4000/signup", {
+        fetch("https://prochats.onrender.com:1234/signup", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -655,7 +655,7 @@ const state = {
     singIn () {
         console.log("singIn");
         const cs = this.getState();
-        if (cs.email) fetch("https://prochats.onrender.com:4000/signin", {
+        if (cs.email) fetch("https://prochats.onrender.com:1234/signin", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -680,7 +680,7 @@ const state = {
     roomId () {
         console.log("roomId");
         const cs = this.getState();
-        if (cs.email) fetch("https://prochats.onrender.com:4000/roomId", {
+        if (cs.email) fetch("https://prochats.onrender.com:1234/roomId", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -700,7 +700,7 @@ const state = {
     askNewRoom () {
         console.log("askNewRoom");
         const cs = this.getState();
-        if (cs.userId) fetch("https://prochats.onrender.com:4000/rooms", {
+        if (cs.userId) fetch("https://prochats.onrender.com:1234/rooms", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -722,7 +722,7 @@ const state = {
         const cs = this.getState();
         const roomIdState = cs.roomId;
         const userIdState = cs.userId;
-        fetch("https://prochats.onrender.com:4000/rooms/" + roomIdState + "?userId=" + userIdState).then((res)=>{
+        fetch("https://prochats.onrender.com:1234/rooms/" + roomIdState + "?userId=" + userIdState).then((res)=>{
             return res.json();
         }).then((data)=>{
             cs.rtdbRoomId = data.rtdbRoomId;
@@ -753,7 +753,7 @@ const state = {
         };
         const messages = state.data.messages;
         messages.push(messagePack);
-        fetch("https://prochats.onrender.com:4000/messages", {
+        fetch("https://prochats.onrender.com:1234/messages", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -43243,8 +43243,10 @@ router.setRoutes([
 var _state = require("../src/state");
 customElements.define("welc-el", class Welcome extends HTMLElement {
     connectedCallback() {
-        console.log("apibaseurl.env:", "https://prochats.onrender.com:4000");
-        fetch("https://prochats.onrender.com:4000/api/welcome", {}).then((res)=>{
+        console.log("nodeEnv.env:", "development");
+        console.log("appSecret.env:", undefined);
+        console.log("apibaseurl.env:", "https://prochats.onrender.com:1234");
+        fetch("https://prochats.onrender.com:1234/api/welcome", {}).then((res)=>{
             res.json();
         }).then((data)=>{
             console.log(data);
