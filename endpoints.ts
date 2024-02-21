@@ -8,7 +8,7 @@ const port = process.env.PORT;
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.static("dist"));
+
 
 const usersRef = collection(fsdb, "users")
 const roomsRef = collection(fsdb, "rooms")
@@ -117,6 +117,7 @@ app.get("/rooms/:roomId", function (req, res) {
     });
 });
 
+app.use(express.static("dist"));
 app.get("*", () => { __dirname + "/dist/index.html" })
 
 
