@@ -116,9 +116,9 @@ app.get("/rooms/:roomId", function (req, res) {
 app.use(express.static("dist"));
 app.get("*", () => { __dirname + "/dist/index.html" })
 
-app.get("/", (req, res) => {
-    res.status(200).send({ message: "Ok" })
-})
+// app.get("/", (req, res) => {
+//     res.status(200).send({ message: "Ok" })
+// })
 
 app.listen(port, () => {
     console.log(`Example app listening at ${port}`)
