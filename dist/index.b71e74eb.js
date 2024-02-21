@@ -43251,7 +43251,7 @@ customElements.define("welc-el", class Welcome extends HTMLElement {
         require("aa811efd66e07a50").config();
         console.log("port.env", "4000");
         console.log("nodeEnv.env:", "development");
-        console.log("appSecret.env:", undefined);
+        console.log("appSecret.env:", "ac3d5af152ac26a2d644b5fcfeb7e190");
         console.log("apibaseurl.env:", "https://prochats.onrender.com:1234");
         fetch("https://prochats.onrender.com:1234/api/welcome", {}).then((res)=>{
             res.json();
