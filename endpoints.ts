@@ -5,6 +5,7 @@ import { doc, collection, addDoc, getDoc, getDocs, where, query, setDoc, Timesta
 import cors from "cors"
 require("dotenv").config()
 const port = process.env.PORT;
+console.log(port)
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -16,6 +17,10 @@ const roomShortId = 1000 + Math.floor(Math.random() * 999)
 const createDocRoomsRef = doc(fsdb, "rooms/" + roomShortId.toString())
 
 // -----------------------------------------------
+
+app.get("/", (req, res) => {
+    res.status(200).send({ message: "Ok" })
+})
 
 app.post("/signup", function (req, res) {
     const email = req.body.email; const name = req.body.name;
@@ -116,9 +121,6 @@ app.get("/rooms/:roomId", function (req, res) {
 app.use(express.static("dist"));
 app.get("*", () => { __dirname + "/dist/index.html" })
 
-// app.get("/", (req, res) => {
-//     res.status(200).send({ message: "Ok" })
-// })
 
 app.listen(port, () => {
     console.log(`Example app listening at ${port}`)

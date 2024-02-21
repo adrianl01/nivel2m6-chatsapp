@@ -43253,11 +43253,6 @@ customElements.define("welc-el", class Welcome extends HTMLElement {
         console.log("nodeEnv.env:", "development");
         console.log("appSecret.env:", "ac3d5af152ac26a2d644b5fcfeb7e190");
         console.log("apibaseurl.env:", "https://prochats.onrender.com:1234");
-        fetch("https://prochats.onrender.com:1234/", {}).then((res)=>{
-            res.json();
-        }).then((data)=>{
-            console.log(data);
-        });
         this.render();
         this.listeners();
     }
