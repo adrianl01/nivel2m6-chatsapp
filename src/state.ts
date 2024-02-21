@@ -1,7 +1,6 @@
 import { onValue, ref } from "firebase/database"
 import { rtdb } from "./db"
 import * as map from "lodash/map"
-require("dotenv").config();
 import { Router } from "@vaadin/router";
 const state = {
     data: {

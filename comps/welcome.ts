@@ -2,7 +2,6 @@ import { state } from "../src/state";
 
 customElements.define("welc-el", class Welcome extends HTMLElement {
     connectedCallback() {
-        require("dotenv").config()
         console.log("port.env", process.env.PORT)
         console.log("nodeEnv.env:", process.env.NODE_ENV)
         console.log("appSecret.env:", process.env.APP_SECRET)

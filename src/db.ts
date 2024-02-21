@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app"
 import { getDatabase } from "firebase/database"
 import { getFirestore } from "firebase/firestore"
-require("dotenv").config()
 console.log(process.env.API_KEY)
 console.log(process.env.DB_URL)
 console.log(process.env.AUTH_DOMAIN)

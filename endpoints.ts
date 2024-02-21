@@ -3,7 +3,6 @@ import { rtdb, fsdb } from "./src/db";
 import { get, ref, set } from "firebase/database"
 import { doc, collection, addDoc, getDoc, getDocs, where, query, setDoc, Timestamp, QuerySnapshot, QueryDocumentSnapshot } from "firebase/firestore"
 import cors from "cors"
-require("dotenv").config()
 const port = process.env.PORT;
 console.log(port)
 const app = express();
@@ -19,7 +18,7 @@ const createDocRoomsRef = doc(fsdb, "rooms/" + roomShortId.toString())
 // -----------------------------------------------
 
 app.get("/", (req, res) => {
-    res.status(200).send({ message: "Ok" })
+    res.status(200)
 })
 
 app.post("/signup", function (req, res) {
