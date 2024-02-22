@@ -18,7 +18,7 @@ const createDocRoomsRef = doc(fsdb, "rooms/" + roomShortId.toString())
 // -----------------------------------------------
 
 app.get("/", (req, res) => {
-    res.status(200)
+    res.status(200).send("OK")
 })
 
 app.post("/signup", function (req, res) {
