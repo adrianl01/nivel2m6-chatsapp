@@ -17,10 +17,6 @@ const createDocRoomsRef = doc(fsdb, "rooms/" + roomShortId.toString())
 
 // -----------------------------------------------
 
-app.get("/", (req, res) => {
-    res.status(200).send("OK")
-})
-
 app.post("/signup", function (req, res) {
     const email = req.body.email; const name = req.body.name;
     console.log("datos en el sign up:" + email, name)
@@ -120,6 +116,9 @@ app.get("/rooms/:roomId", function (req, res) {
 app.use(express.static("dist"));
 app.get("*", () => { __dirname + "/dist/index.html" })
 
+app.get("/", (req, res) => {
+    res.status(200).send("OK")
+})
 
 app.listen(port, () => {
     console.log(`Example app listening at ${port}`)
