@@ -43,7 +43,11 @@ app.post("/rooms", function (req, res) {
             console.log("userId:", userId)
             const rtdbRoomsRef = ref(rtdb, "rooms/" + uuid4())
             set(rtdbRoomsRef, {
-                messages: {}
+                messages: [
+                    // {
+                    //     from: "", message: ""
+                    // }
+                ]
             }).then(() => {
                 const roomLongId = rtdbRoomsRef.key;
                 setDoc(createDocRoomsRef, {
