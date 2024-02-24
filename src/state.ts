@@ -52,16 +52,16 @@ const state = {
         }).then(data => {
             console.log(data)
             if (data.message == "user already exist") {
-                state.singIn();
+                state.signIn();
             } else {
                 cs.userId = data.id;
                 this.setState(cs);
-                this.signIn();
+                if (state.data.roomId == "") { state.askNewRoom(); } else { state.accessToRoom(); }
             }
         })
     },
-    singIn() {
-        console.log("singIn")
+    signIn() {
+        console.log("signIn")
         const cs = this.getState()
         if (cs.email) {
             fetch(process.env.API_BASE_URL + "/signin", {
@@ -86,11 +86,16 @@ const state = {
         }
         // lunes 9/10/2023 19:16, agregar el endpoint signUp. Update: lunes 30/10/2023, ya estan todos los enpoints listos hace una semana.
     },
+
+    newSimpleRoom() {
+
+    },
+
     roomId() {
         console.log("roomId");
         const cs = this.getState()
         if (cs.email) {
-            fetch(process.env.API_BASE_URL + "/roomId", {
+            fetch(process.env.API_BASE_URL + "/roomid", {
                 method: "post",
                 headers: {
                     "content-type": "application/json"

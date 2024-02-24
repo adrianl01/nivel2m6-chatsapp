@@ -1,2 +1,2 @@
 require("dotenv/config")
-require("./endpoints")
+require("./endpoints.ts")

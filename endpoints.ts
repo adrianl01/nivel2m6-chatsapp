@@ -3,6 +3,7 @@ import { rtdb, fsdb } from "./src/db";
 import { get, ref, set } from "firebase/database"
 import { doc, collection, addDoc, getDoc, getDocs, where, query, setDoc, Timestamp, QuerySnapshot, QueryDocumentSnapshot } from "firebase/firestore"
 import cors from "cors"
+import { v4 as uuid4 } from "uuid"
 const port = process.env.PORT;
 console.log(port)
 const app = express();
@@ -30,6 +31,35 @@ app.post("/signup", function (req, res) {
         } else { console.log("no está vacio"); res.status(400).json({ message: "user already exist" }) }
     })
 });
+
+// -----------------------------------------------
+
+app.post("/rooms", function (req, res) {
+    const userId = req.body.userId;
+    getDoc(doc(usersRef, userId)).then(doc => {
+        console.log("---------------------------")
+        console.log("doc:", doc.data())
+        if (doc.exists()) {
+            console.log("userId:", userId)
+            const rtdbRoomsRef = ref(rtdb, "rooms/" + uuid4())
+            set(rtdbRoomsRef, {
+                messages: {}
+            }).then(() => {
+                const roomLongId = rtdbRoomsRef.key;
+                setDoc(createDocRoomsRef, {
+                    userId: userId,
+                    rtdbRoomId: roomLongId
+                }).then(() => {
+                    res.json({
+                        id: roomShortId.toString()
+                    })
+                })
+            })
+        } else {
+            res.status(401).json({ message: "Necesistas crear una cuenta para crear una room" })
+        }
+    })
+})
 
 // -----------------------------------------------
 

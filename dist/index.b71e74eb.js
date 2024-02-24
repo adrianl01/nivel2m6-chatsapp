@@ -142,10 +142,10 @@
       this[globalName] = mainExports;
     }
   }
-})({"gmPuC":[function(require,module,exports) {
+})({"a0pd7":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = null;
+var HMR_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 module.bundle.HMR_BUNDLE_ID = "5c1b77e3b71e74eb";
@@ -643,16 +643,17 @@ const state = {
             return res.json();
         }).then((data)=>{
             console.log(data);
-            if (data.message == "user already exist") state.singIn();
+            if (data.message == "user already exist") state.signIn();
             else {
                 cs.userId = data.id;
                 this.setState(cs);
-                this.signIn();
+                if (state.data.roomId == "") state.askNewRoom();
+                else state.accessToRoom();
             }
         });
     },
-    singIn () {
-        console.log("singIn");
+    signIn () {
+        console.log("signIn");
         const cs = this.getState();
         if (cs.email) fetch("https://prochats.onrender.com/signin", {
             method: "post",
@@ -676,10 +677,11 @@ const state = {
         else console.error("No hay un email en el state");
     // lunes 9/10/2023 19:16, agregar el endpoint signUp. Update: lunes 30/10/2023, ya estan todos los enpoints listos hace una semana.
     },
+    newSimpleRoom () {},
     roomId () {
         console.log("roomId");
         const cs = this.getState();
-        if (cs.email) fetch("https://prochats.onrender.com/roomId", {
+        if (cs.email) fetch("https://prochats.onrender.com/roomid", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -42727,7 +42729,7 @@ router.setRoutes([
 var _state = require("../src/state");
 customElements.define("welc-el", class Welcome extends HTMLElement {
     connectedCallback() {
-        console.log("port.env", "1234");
+        console.log("port.env", "3000");
         console.log("nodeEnv.env:", "development");
         console.log("appSecret.env:", "ac3d5af152ac26a2d644b5fcfeb7e190");
         console.log("apibaseurl.env:", "https://prochats.onrender.com");
@@ -43078,6 +43080,6 @@ customElements.define("chatr-el", class ChatRoom extends HTMLElement {
     }
 });
 
-},{"../src/state":"1Yeju"}]},["gmPuC","h7u1C"], "h7u1C", "parcelRequire4cb4")
+},{"../src/state":"1Yeju"}]},["a0pd7","h7u1C"], "h7u1C", "parcelRequire4cb4")
 
 //# sourceMappingURL=index.b71e74eb.js.map
