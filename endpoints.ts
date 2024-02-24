@@ -89,17 +89,17 @@ app.post("/roomid", (req, res) => {
     console.log("nombre en el roomId:", userId);
     const q = query(roomsRef, where("userId", "==", userId));
     getDocs(q).then(searchRes => {
-        // if (searchRes.empty) {
-        //     res.status(404).json({
-        //         message: "not found"
-        //     })
-        // } else {
-        res.json(
-            {
-                id: searchRes.docs[0].id
-            }
-        )
-        // }
+        if (searchRes.empty) {
+            res.status(404).json({
+                message: "not found"
+            })
+        } else {
+            res.json(
+                {
+                    id: searchRes.docs[0].id
+                }
+            )
+        }
     })
 })
 
