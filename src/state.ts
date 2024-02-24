@@ -52,6 +52,7 @@ const state = {
         }).then(data => {
             console.log(data)
             if (data.message == "user already exist") {
+                if (state.data.roomId == "") { state.askNewRoom(); }
                 state.signIn();
             } else {
                 cs.userId = data.id;
