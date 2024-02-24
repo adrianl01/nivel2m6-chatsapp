@@ -158,9 +158,7 @@ const state = {
         const chatroomsRef = ref(db, "/rooms/" + cs.rtdbRoomId);
         onValue(chatroomsRef, (snapshot => {
             const val = snapshot.val();
-            console.log(val)
             const messagesList = map(val.messages);
-            console.log(val.messages)
             cs.messages = messagesList
             this.setState(cs);
             if (location.pathname !== "/chat") { Router.go("/chat") };
