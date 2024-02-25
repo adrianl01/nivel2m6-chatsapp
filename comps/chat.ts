@@ -131,7 +131,7 @@ customElements.define("chatr-el",
                 .feed{
                     display: flex;
                     flex-direction: column;
-                    height: 100%;
+                    min-height: 100%;
                     width: 375px;
                     background-color:green;
                     z-index: 0;
