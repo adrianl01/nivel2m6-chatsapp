@@ -43013,6 +43013,7 @@ customElements.define("chatr-el", class ChatRoom extends HTMLElement {
                     display: flex;
                     flex-direction: column;
                     min-height: 100%;
+                    flex-grow: 1;
                     width: 375px;
                     background-color:green;
                     z-index: 0;
