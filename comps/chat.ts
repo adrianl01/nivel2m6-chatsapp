@@ -48,13 +48,15 @@ customElements.define("chatr-el",
                     if (state.data.fullName == m.from) { div.classList.add("message2"); }
                     if (state.data.fullName !== m.from) { div.classList.add("message"); }
                     const feedEl = this.querySelector(".feed").childNodes
-                    if (feedEl.length > 0) {
-                        feedEl.forEach((c) => {
-                            const message = c.childNodes[2]?.textContent
-                            if (message !== m.message) { }
-                        })
+                    // if (feedEl.length > 0) {
+                    //     feedEl.forEach((c) => {
+                    //         const message = c.childNodes[2]?.textContent
+                    //         if (message !== m.message) { }
+                    //     })
+                    // }
+                    if (m.from == "") { } else {
+                        return this.querySelector(".feed").appendChild(div);
                     }
-                    return this.querySelector(".feed").appendChild(div);
                 })
             } else {
                 const m = this.messages.slice(-1);
@@ -74,14 +76,9 @@ customElements.define("chatr-el",
                 }
                 return this.querySelector(".feed").appendChild(div);
             }
-
         }
         render() {
             console.log("EL RENDER RENDERIZZA")
-            setTimeout(() => {
-                // console.log(this.messages)
-            }, 2000)
-
             const roomId = state.getState().roomId;
             const div = document.createElement("div");
             div.innerHTML = `

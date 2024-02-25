@@ -42933,11 +42933,14 @@ customElements.define("chatr-el", class ChatRoom extends HTMLElement {
             if ((0, _state.state).data.fullName == m.from) div.classList.add("message2");
             if ((0, _state.state).data.fullName !== m.from) div.classList.add("message");
             const feedEl = this.querySelector(".feed").childNodes;
-            if (feedEl.length > 0) feedEl.forEach((c)=>{
-                const message = c.childNodes[2]?.textContent;
-                m.message;
-            });
-            return this.querySelector(".feed").appendChild(div);
+            // if (feedEl.length > 0) {
+            //     feedEl.forEach((c) => {
+            //         const message = c.childNodes[2]?.textContent
+            //         if (message !== m.message) { }
+            //     })
+            // }
+            if (m.from == "") ;
+            else return this.querySelector(".feed").appendChild(div);
         });
         else {
             const m = this.messages.slice(-1);
@@ -42957,9 +42960,6 @@ customElements.define("chatr-el", class ChatRoom extends HTMLElement {
     }
     render() {
         console.log("EL RENDER RENDERIZZA");
-        setTimeout(()=>{
-        // console.log(this.messages)
-        }, 2000);
         const roomId = (0, _state.state).getState().roomId;
         const div = document.createElement("div");
         div.innerHTML = `
