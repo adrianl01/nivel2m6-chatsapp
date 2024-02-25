@@ -42770,7 +42770,7 @@ customElements.define("welc-el", class Welcome extends HTMLElement {
             (0, _state.state).data.roomId = roomId;
             if (roomOption.room === "existant") {
                 console.log("adentro del existant");
-                (0, _state.state).singIn();
+                (0, _state.state).signIn();
             } else if (roomOption.room === "new") (0, _state.state).signUp();
         });
     }

@@ -42,7 +42,7 @@ customElements.define("welc-el", class Welcome extends HTMLElement {
             state.data.roomId = roomId;
             if (roomOption.room === "existant") {
                 console.log("adentro del existant")
-                state.singIn()
+                state.signIn()
             } else if (roomOption.room === "new") {
                 state.signUp();
             }
